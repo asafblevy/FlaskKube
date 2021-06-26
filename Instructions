@@ -1,0 +1,28 @@
+Asaf Bein Levy DevOps project for Kovrr
+
+# Usage guidelines:
+
+Please clone the repository into your machine.
+
+Install Kubernetes and helm to run the project.
+
+You should build the image using the Dockerfile in the project directory, from there on
+simply install the helm chart and the project should be good to go.
+
+to access the pods from your local machine please port forward the flaskee service using-
+kubectl port-forward service/flaskee 8080:8080, from there on you can use curl with the 8080
+port to access health checks, prometheus metrics and so on.
+
+To use Git CI just push to the master branch.
+
+To get this project done I used a lot of different sources online, mainly StackOverflow.
+other github projects for reference and also some web articles.
+
+# Challenges:
+
+I did run into problems using the main script, I had to change the IP at the bottom to listen
+to all IP's and not just the local IP for the script to be able to listen from the kube master.
+
+I also did not manage to finish flask tests in time, currently the tests would work if the 
+main script stopped running to get the tests done.
+
